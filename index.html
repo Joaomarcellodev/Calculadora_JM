@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        body {
+            background-color: blueviolet;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; 
+        }
+        
+        h1 {
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .container {
+            padding: 40px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0px 0px 50px;
+        }
+
+        #firstNumber{
+            margin: 10px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            color: orange;
+            text-align: center;
+            
+        }
+
+        #secondNumber{
+            margin: 10px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            color: orange;
+            text-align: center;
+        }
+
+        #resultFinish{
+            margin: 10px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            color: orange;
+            text-align: center;
+        }
+
+
+
+        button{
+            font-weight: bold;
+            padding: 10px 20px;
+            background-color: blueviolet;
+            color: white;
+            border: none;
+            border-radius: 15px;
+        }
+
+        #clear{
+            padding: 10px 60px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        #clear:hover{
+            background-color: rgb(108, 37, 175);
+            cursor: pointer;
+        }
+
+        .button button:hover{
+             background-color: rgb(108, 37, 175);
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+            <h1>Calculator</h1>
+
+            <input type="number" id="firstNumber" placeholder="Enter the first number">
+
+        <div class="button">
+            <button id="addition">+</button>
+            <button id="subtraction">-</button>
+            <button id="multiplication">*</button>
+            <button id="division">/</button>
+        </div>   
+
+            <input type="number" id="secondNumber" placeholder=" Enter the second number">
+            <input disabled type="number"id="resultFinish" placeholder="Result">
+
+
+            <button id = "clear">CLEAR</button>
+        
+            <script>
+                const buttonAddition = document.getElementById("addition");
+                const buttonSubtraction = document.getElementById("subtraction");
+                const buttonMultiplication = document.getElementById("multiplication");
+                const buttonDivision = document.getElementById("division");
+                const buttonClear = document.getElementById("clear");
+                const inputFirstNumber = document.getElementById("firstNumber");
+                const inputSecondNumber = document.getElementById("secondNumber");
+                const inputResultFinish = document.getElementById("resultFinish");
+            
+                buttonAddition.addEventListener("click", performAddition);
+                buttonSubtraction.addEventListener("click", performSubtraction);
+                buttonMultiplication.addEventListener("click", performMultiplication);
+                buttonDivision.addEventListener("click", performDivision);
+                buttonClear.addEventListener("click", clearInputs);
+            
+                function performAddition() {
+                    const result = parseFloat(inputFirstNumber.value) + parseFloat(inputSecondNumber.value);
+                    inputResultFinish.value = result;
+                }
+            
+                function performSubtraction() {
+                    const result = parseFloat(inputFirstNumber.value) - parseFloat(inputSecondNumber.value);
+                    inputResultFinish.value = result;
+                }
+            
+                function performMultiplication() {
+                    const result = parseFloat(inputFirstNumber.value) * parseFloat(inputSecondNumber.value);
+                    inputResultFinish.value = result;
+                }
+            
+                function performDivision() {
+                    const result = parseFloat(inputFirstNumber.value) / parseFloat(inputSecondNumber.value);
+                    inputResultFinish.value = result;
+                }
+            
+                function clearInputs() {
+                    inputFirstNumber.value = "";
+                    inputSecondNumber.value = "";
+                    inputResultFinish.value = "";
+                }
+            </script>
+            
+
+</body>
+</html>
